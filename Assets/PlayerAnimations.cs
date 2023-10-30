@@ -25,7 +25,12 @@ public class PlayerAnimations : MonoBehaviour
             Animator.SetBool("Jumping", false);
         }
 
-
+        
+        if(GetComponent<PlayerMovement>().sliding == true){
+            Animator.SetBool("Sliding", true);
+        }else{
+            Animator.SetBool("Sliding", false);
+        }
 
 
 
