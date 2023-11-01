@@ -44,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
     public float WallJumpForceY = 16f;
     
     public bool sliding;
-        
+
+    float slidingDelay = 0.5f;
 
     void Update()   
         {   
@@ -82,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
             if(WallJumping == true){
 
                  rb.velocity = new Vector2(WallJumpForceX * -Input.GetAxisRaw("Horizontal"), WallJumpForceY);
+
+                 
             }
 
                 // player slide invoker
@@ -90,14 +93,16 @@ public class PlayerMovement : MonoBehaviour
             }else{
                 sliding = false;
             }
-
+        slidingDelay -= Time.deltaTime;
 
     }
         //player slider function
          private void Slide(){
+            if(slidingDelay < 0){
             sliding = true;
             rb.AddForce(new Vector2(500*Input.GetAxisRaw("Horizontal"), 0));
-
+            slidingDelay = 0.5f;
+            }
 
          }
 
