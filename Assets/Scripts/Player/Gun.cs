@@ -15,7 +15,7 @@ public class Gun : MonoBehaviour
     {
        //makes our gun point towards the mouse position
         Vector3 MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Direction = (MousePosition - gun.transform.position);
+        Direction = MousePosition - gun.transform.position;
         gun.transform.up = Direction;
 
 

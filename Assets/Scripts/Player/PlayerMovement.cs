@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
                  
             }
 
-                // player slide invoker
+                // player slide call
             if(IsGrounded == true && Input.GetKeyDown(KeyCode.LeftShift) == true){
                 Slide();
             }else{
