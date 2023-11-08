@@ -8,11 +8,15 @@ public class Enemy : MonoBehaviour
 {
 [SerializeField]Transform eyes;
 bool seesPlayer;
-bool shoot;
+float ShootTimer = 0.6f;
 Vector2 FaceDir;
 [SerializeField] LayerMask playerLayer;
 [SerializeField] Transform PlayerTr;
 [SerializeField] LayerMask EnemyLayer;
+[SerializeField] GameObject Bullet;
+[SerializeField] Transform Gun1;
+[SerializeField] Transform Gun2;
+public Animator Animator;
 
 
 
@@ -32,12 +36,26 @@ Vector2 FaceDir;
                 transform.right = new Vector3(-1,0,0);
             }
 
+            if(ShootTimer < 0){
+                Animator.SetBool("Shoot", true);
+                Shoot();
+                ShootTimer = 0.6f;
+            }else{
+                
+            }
+
+
+    ShootTimer -= Time.deltaTime;
         }
 
 
         
     }
+    private void Shoot(){
+        Instantiate(Bullet, Gun1.position, Quaternion.identity);
+        Instantiate(Bullet, Gun2.position, Quaternion.identity);
 
+    }
 
    public void SeePlayer(Vector3 eyePos, Vector3 playerPos){
         
