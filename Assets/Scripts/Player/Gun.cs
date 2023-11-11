@@ -10,13 +10,14 @@ public class Gun : MonoBehaviour
     [SerializeField] GameObject gun;
     
     Vector3 Direction;
-    [SerializeField] LayerMask Enemy;
+    [SerializeField] string EnemyTag;
     [SerializeField] LayerMask Player;
+    
     void Update()
     {
        //makes our gun point towards the mouse position
         Vector3 MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Direction = MousePosition - gun.transform.position;
+        Direction = gun.transform.position - MousePosition;
         gun.transform.up = Direction;
 
 
@@ -40,8 +41,8 @@ public class Gun : MonoBehaviour
         if(HitInfo.collider != null){
             if(HitInfo){
                     Debug.Log(HitInfo.transform.name);
-                    if(HitInfo.collider.gameObject.layer == Enemy){
-                        HitInfo.collider.GetComponent<Enemy>().Health -= 3;
+                        if(HitInfo.collider.gameObject.tag == EnemyTag){
+                            HitInfo.collider.GetComponent<Enemy>().Health -= 3;
                     }
             }
         }

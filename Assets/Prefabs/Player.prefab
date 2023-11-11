@@ -317,6 +317,7 @@ MonoBehaviour:
   WallJumpForceX: 8
   WallJumpForceY: 16
   sliding: 0
+  Health: 5
 --- !u!114 &1739330695664414788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 711068747115127657}
+  EnemyTag: Enemy
   Player:
     serializedVersion: 2
     m_Bits: 128

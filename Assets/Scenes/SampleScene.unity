@@ -3323,6 +3323,10 @@ PrefabInstance:
       propertyPath: PlayerTr
       value: 
       objectReference: {fileID: 3870319187040434535}
+    - target: {fileID: 7189657690964517534, guid: 8dfb0dd7a5b4c20478b9b74e4ee7b161, type: 3}
+      propertyPath: EnemyLayer.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
     - target: {fileID: 7633229344185619081, guid: 8dfb0dd7a5b4c20478b9b74e4ee7b161, type: 3}
       propertyPath: m_Name
       value: Enemy1
@@ -3429,6 +3433,10 @@ PrefabInstance:
     - target: {fileID: 5445175447323669305, guid: 2dcf4238a3cdcc545ab0294849adcd30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869605405344310918, guid: 2dcf4238a3cdcc545ab0294849adcd30, type: 3}
+      propertyPath: Enemy.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 8224243693089995643, guid: 2dcf4238a3cdcc545ab0294849adcd30, type: 3}
       propertyPath: m_Name
