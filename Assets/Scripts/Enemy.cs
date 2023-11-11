@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
 [SerializeField]Transform eyes;
 bool seesPlayer;
 float ShootTimer = 0.6f;
+public int Health = 3;
 Vector2 FaceDir;
 [SerializeField] LayerMask playerLayer;
 [SerializeField] Transform PlayerTr;
@@ -25,9 +26,16 @@ public Animator Animator;
 
     void Update()
     {
+        //kills enemy
+        if(Health <= 0){
+            Destroy(gameObject);
+        }
+            
+
         FaceDir = transform.position - PlayerTr.transform.position;
         SeePlayer(eyes.position, PlayerTr.position);
 
+        //när motståndaren ser spelaren, ska den vända sig mot den, och börja skjuta mot den. 
         if(seesPlayer == true){
             
             if(PlayerTr.position.x > transform.position.x){
@@ -41,7 +49,7 @@ public Animator Animator;
                 Shoot();
                 ShootTimer = 0.6f;
             }else{
-                
+                Animator.SetBool("Shoot", false);
             }
 
 
@@ -49,7 +57,7 @@ public Animator Animator;
         }
 
 
-        
+    //skapar bulletsen som går mot spelarens position vid avfyrning
     }
     private void Shoot(){
         Instantiate(Bullet, Gun1.position, Quaternion.identity);
@@ -61,7 +69,10 @@ public Animator Animator;
         
 
 
+//Om spelaren är tillräckligt nära motståndaren ska motståndaren börja kolla om den kan se den (för performance, och så den bara ser oss ifall dne är på skärmen)
+    if(Vector2.Distance(PlayerTr.position, transform.position) < 9){
 
+//skickar en raycast mot spelaren. om ingenting är i vägen ser motståndaren den
         RaycastHit2D hitInfo = Physics2D.Raycast(eyePos, FaceDir, ~EnemyLayer);
         if(hitInfo.collider != null){
             Debug.Log(hitInfo.transform.name);
@@ -74,7 +85,7 @@ public Animator Animator;
 
 
         }
-
+    }
     }
 
          private void OnDrawGizmos() {

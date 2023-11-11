@@ -47,10 +47,15 @@ public class PlayerMovement : MonoBehaviour
 
     float slidingDelay = 0.5f;
 
+    public int Health = 5;
+
     void Update()   
         {   
+            if(Health <= 0){
+                Destroy(gameObject);
+            }
             
-            
+
             //rotates the player
             if(Input.GetAxisRaw("Horizontal") != 0){
             GetComponent<Transform>().rotation = Quaternion.LookRotation(Vector3.forward * Input.GetAxisRaw("Horizontal"), Vector3.up);
