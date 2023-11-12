@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.MPE;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -22,10 +23,10 @@ public class Gun : MonoBehaviour
 
 
         if(Input.GetButtonDown("Fire1")){
-           
-           fire(gun.transform.position, Direction);
-
-           
+           GetComponentInChildren<PlayerBullet>().ShowBullet = true;
+           fire(gun.transform.position, Direction);           
+        }else{
+             GetComponentInChildren<PlayerBullet>().ShowBullet = false;
         }
 
         
