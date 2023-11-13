@@ -72,7 +72,7 @@ public Animator Animator;
 //Om spelaren är tillräckligt nära motståndaren ska motståndaren börja kolla om den kan se den (för performance, och så den bara ser oss ifall dne är på skärmen)
     if(Vector2.Distance(PlayerTr.position, transform.position) < 9){
 
-//skickar en raycast mot spelaren. om ingenting är i vägen ser motståndaren den
+//skickar en raycast mot spelaren. om ingenting är i vägen ser motståndaren den. EnemyLayer är alla lager som skall skippas
         RaycastHit2D hitInfo = Physics2D.Raycast(eyePos, FaceDir, ~EnemyLayer);
         if(hitInfo.collider != null){
             Debug.Log(hitInfo.transform.name);

@@ -18,7 +18,7 @@ public class PlayerAnimations : MonoBehaviour
 
 
         //Transistions to jumping phase, if player is no longer on the ground
-        if(GetComponent<PlayerMovement>().IsGrounded == false){
+        if(GetComponent<PlayerMovement>().IsGrounded == false && GetComponent<LadderMovement>().IsClimbing == false){
 
             Animator.SetBool("Jumping", true);
         }else{
