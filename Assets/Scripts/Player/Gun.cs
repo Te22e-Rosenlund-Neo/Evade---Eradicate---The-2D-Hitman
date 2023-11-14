@@ -42,7 +42,7 @@ public class Gun : MonoBehaviour
 
     public void fire(Vector3 OriginPos, Vector3 ShootDir){
         
-        RaycastHit2D HitInfo = Physics2D.Raycast(OriginPos, ShootDir,~Player);
+        RaycastHit2D HitInfo = Physics2D.Raycast(OriginPos, -ShootDir, 20, ~Player);
        
         
         if(HitInfo.collider != null){

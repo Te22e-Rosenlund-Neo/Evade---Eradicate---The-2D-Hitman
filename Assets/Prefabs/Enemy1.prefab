@@ -218,10 +218,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyes: {fileID: 4069979543840342026}
+  Health: 3
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  PlayerTr: {fileID: 5445175447323669305, guid: 2dcf4238a3cdcc545ab0294849adcd30, type: 3}
+  PlayerTr: {fileID: 2302362285934051931, guid: 0538fac32157f3f469088b86e8703c16, type: 3}
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 256
