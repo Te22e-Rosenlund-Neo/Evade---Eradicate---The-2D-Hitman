@@ -32,7 +32,7 @@ public Animator Animator;
         }
             
 
-        FaceDir = transform.position - PlayerTr.transform.position;
+        FaceDir = PlayerTr.transform.position - transform.position;
         SeePlayer(eyes.position, PlayerTr.position);
 
         //när motståndaren ser spelaren, ska den vända sig mot den, och börja skjuta mot den. 
@@ -73,9 +73,10 @@ public Animator Animator;
     if(Vector2.Distance(PlayerTr.position, transform.position) < 9){
 
 //skickar en raycast mot spelaren. om ingenting är i vägen ser motståndaren den. EnemyLayer är alla lager som skall skippas
-        RaycastHit2D hitInfo = Physics2D.Raycast(eyePos, FaceDir, ~EnemyLayer);
+        RaycastHit2D hitInfo = Physics2D.Raycast(eyePos, FaceDir,Vector2.Distance(eyePos,playerPos), ~EnemyLayer);
+        
         if(hitInfo.collider != null){
-            Debug.Log(hitInfo.transform.name);
+           // Debug.Log(hitInfo.transform.name);
 
             if(hitInfo.transform.gameObject.name == "Player"){
                 seesPlayer = true;

@@ -13,7 +13,7 @@ public class Gun : MonoBehaviour
     Vector3 Direction;
     [SerializeField] string EnemyTag;
     [SerializeField] LayerMask Player;
-    
+   
     void Update()
     {
        //makes our gun point towards the mouse position
@@ -22,21 +22,27 @@ public class Gun : MonoBehaviour
         gun.transform.up = Direction;
 
 
-        if(Input.GetButtonDown("Fire1")){
-           GetComponentInChildren<PlayerBullet>().ShowBullet = true;
+        if(Input.GetButtonUp("Fire1")){
            fire(gun.transform.position, Direction);           
-        }else{
-             GetComponentInChildren<PlayerBullet>().ShowBullet = false;
         }
 
+
+        if(Input.GetButtonDown("Fire1")){
+            GetComponentInChildren<PlayerBullet>().ShowBullet = true;
+        }
+        if(Input.GetButtonUp("Fire1")){
+            GetComponentInChildren<PlayerBullet>().ShowBullet = false;
+        }
         
 
 
     }
+  
+
 
     public void fire(Vector3 OriginPos, Vector3 ShootDir){
         
-        RaycastHit2D HitInfo = Physics2D.Raycast(OriginPos, ShootDir, ~Player);
+        RaycastHit2D HitInfo = Physics2D.Raycast(OriginPos, ShootDir,~Player);
        
         
         if(HitInfo.collider != null){

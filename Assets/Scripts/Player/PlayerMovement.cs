@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
     public float JumpForce = 1000f;
 
     float WallSlideSpeed = -1;
-    bool WallSliding;
 
     bool WallJumping;
     float WallJumpingTime = 0.005f;
