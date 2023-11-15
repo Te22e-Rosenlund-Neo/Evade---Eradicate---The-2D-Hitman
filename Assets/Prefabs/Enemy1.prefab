@@ -172,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 576576024, guid: ccc7ec4b33df2044a8cbc0dcbc1c7284, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   PlayerTr: {fileID: 2302362285934051931, guid: 0538fac32157f3f469088b86e8703c16, type: 3}
   EnemyLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   Bullet: {fileID: 504344619761135495, guid: 0a8b205163ff8cf45ad14c79ac56dc60, type: 3}
   Gun1: {fileID: 8277925921336858310}
   Gun2: {fileID: 7488477926009269039}

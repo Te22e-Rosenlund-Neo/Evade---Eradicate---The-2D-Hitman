@@ -47,7 +47,7 @@ public Animator Animator;
             if(ShootTimer < 0){
                 Animator.SetBool("Shoot", true);
                 Shoot();
-                ShootTimer = 0.6f;
+                ShootTimer = 1f;
             }else{
                 Animator.SetBool("Shoot", false);
             }

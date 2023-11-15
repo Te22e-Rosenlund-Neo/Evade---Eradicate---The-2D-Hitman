@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Ladder
+  - Map
   layers:
   - Default
   - TransparentFX

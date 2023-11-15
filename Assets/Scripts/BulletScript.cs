@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
@@ -9,7 +10,8 @@ public float ShotSpeed = 10;
 float TimeAlive = 0;
 Transform PlayerTr;
 [SerializeField] string PlayerTag;
-
+[SerializeField] string MapTag;
+[SerializeField] string LadderTag;
     void Start(){
         PlayerTr = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         Vector2 Direction = PlayerTr.position - transform.position;
@@ -30,7 +32,10 @@ Transform PlayerTr;
     }
 
   private void OnTriggerEnter2D(Collider2D other) {
-    if(other.tag == PlayerTag){
+    if(other.tag ==  MapTag || other.tag == LadderTag){
+        Destroy(gameObject);
+    }
+    else if(other.tag == PlayerTag){
         other.GetComponent<PlayerMovement>().Health --;
         Destroy(gameObject);
     }
