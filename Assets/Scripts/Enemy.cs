@@ -21,10 +21,6 @@ Vector2 FaceDir;
 public Animator Animator;
 
 
-
-    
- 
-
     void Update()
     {
         //removes enemy
