@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LadderMovement : MonoBehaviour
 {
-    [SerializeField] Animator animator;
-    [SerializeField] Rigidbody2D RB;
+    [SerializeField] Animator Animator;
+    [SerializeField] Rigidbody2D Rb;
     [SerializeField] string LadderTag;
     float LadderSpeed = 5f;
     public bool IsClimbing = false;
@@ -16,12 +16,12 @@ public class LadderMovement : MonoBehaviour
         float VerticalMove = Input.GetAxisRaw("Vertical");
         
         if(IsClimbing == true){
-            RB.gravityScale = 0f;
-            animator.SetBool("OnLadder", true);
-            RB.velocity = new Vector2( 0 , LadderSpeed * VerticalMove);
+            Rb.gravityScale = 0f;
+            Animator.SetBool("OnLadder", true);
+            Rb.velocity = new Vector2( 0 , LadderSpeed * VerticalMove);
         }else{
-            animator.SetBool("OnLadder", false);
-            RB.gravityScale = 6f;
+            Animator.SetBool("OnLadder", false);
+            Rb.gravityScale = 6f;
         }
 
 

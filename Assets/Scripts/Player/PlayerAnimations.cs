@@ -14,10 +14,7 @@ public class PlayerAnimations : MonoBehaviour
         Animator.SetFloat("MoveSpeed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
        
 
-
-
-
-        //Transistions to jumping phase, if player is no longer on the ground
+        //Transistions to jumping animation, if player is no longer on the ground, and isnt on a ladder
         if(GetComponent<PlayerMovement>().IsGrounded == false && GetComponent<LadderMovement>().IsClimbing == false){
 
             Animator.SetBool("Jumping", true);
@@ -25,7 +22,7 @@ public class PlayerAnimations : MonoBehaviour
             Animator.SetBool("Jumping", false);
         }
 
-        
+        //transitions to Sliding animation if player presses "L-Shift"
         if(GetComponent<PlayerMovement>().sliding == true){
             Animator.SetBool("Sliding", true);
         }else{

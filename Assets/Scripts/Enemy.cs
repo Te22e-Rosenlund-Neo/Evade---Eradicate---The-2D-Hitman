@@ -6,17 +6,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-[SerializeField]Transform eyes;
-bool seesPlayer;
-float ShootTimer = 0.6f;
-public int Health = 3;
-Vector2 FaceDir;
-[SerializeField] LayerMask playerLayer;
+[SerializeField]Transform Eyes;
+[SerializeField] LayerMask PlayerLayer;
 [SerializeField] Transform PlayerTr;
 [SerializeField] LayerMask EnemyLayer;
 [SerializeField] GameObject Bullet;
 [SerializeField] Transform Gun1;
 [SerializeField] Transform Gun2;
+
+bool SeesPlayer;
+float ShootTimer = 0.6f;
+public int Health = 3;
+Vector2 FaceDir;
 public Animator Animator;
 
 
@@ -26,17 +27,17 @@ public Animator Animator;
 
     void Update()
     {
-        //kills enemy
+        //removes enemy
         if(Health <= 0){
             Destroy(gameObject);
         }
             
-
+        
         FaceDir = PlayerTr.transform.position - transform.position;
-        SeePlayer(eyes.position, PlayerTr.position);
+        SeePlayer(Eyes.position, PlayerTr.position);
 
         //när motståndaren ser spelaren, ska den vända sig mot den, och börja skjuta mot den. 
-        if(seesPlayer == true){
+        if(SeesPlayer == true){
             
             if(PlayerTr.position.x > transform.position.x){
                 transform.right = new Vector3(1,0,0);
@@ -67,8 +68,6 @@ public Animator Animator;
 
    public void SeePlayer(Vector3 eyePos, Vector3 playerPos){
         
-
-
 //Om spelaren är tillräckligt nära motståndaren ska motståndaren börja kolla om den kan se den (för performance, och så den bara ser oss ifall dne är på skärmen)
     if(Vector2.Distance(PlayerTr.position, transform.position) < 9){
 
@@ -76,12 +75,11 @@ public Animator Animator;
         RaycastHit2D hitInfo = Physics2D.Raycast(eyePos, FaceDir,Vector2.Distance(eyePos,playerPos), ~EnemyLayer);
         
         if(hitInfo.collider != null){
-           // Debug.Log(hitInfo.transform.name);
 
             if(hitInfo.transform.gameObject.name == "Player"){
-                seesPlayer = true;
+                SeesPlayer = true;
             }else{
-                seesPlayer = false;
+                SeesPlayer = false;
             }
 
 
@@ -92,7 +90,7 @@ public Animator Animator;
          private void OnDrawGizmos() {
 
                 Gizmos.color = Color.red;
-            Gizmos.DrawLine(eyes.position, PlayerTr.position);
+            Gizmos.DrawLine(Eyes.position, PlayerTr.position);
         }
 
 
