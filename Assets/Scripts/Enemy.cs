@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 [SerializeField] Transform Gun1;
 [SerializeField] Transform Gun2;
 
-bool SeesPlayer;
+public bool SeesPlayer;
 float ShootTimer = 0.6f;
 public int Health = 3;
 Vector2 FaceDir;

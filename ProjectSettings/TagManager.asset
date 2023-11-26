@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Ladder
   - Map
+  - Barrier
   layers:
   - Default
   - TransparentFX
