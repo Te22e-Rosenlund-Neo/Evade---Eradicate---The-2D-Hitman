@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public int Health = 5;
 
     public bool IsGrounded;
-    Vector2 GroundCheckerSize = new(0.3f,0.1f);
+    Vector2 GroundCheckerSize = new(0.4f,0.1f);
         
     public bool OnWall;
     Vector2 WallCheckerSize = new(0.1f, 0.3f);

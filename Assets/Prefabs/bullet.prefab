@@ -144,6 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTag: Player
-  StarTag: Star
-  LadderTag: Ladder
+  MapTag: Map
   ShotSpeed: 10

@@ -30,7 +30,7 @@ public Animator Animator;
             
         
         FaceDir = PlayerTr.transform.position - transform.position;
-        SeePlayer(Eyes.position, PlayerTr.position);
+        SeesPlayer = SeePlayer(Eyes.position, PlayerTr.position);
 
         //när motståndaren ser spelaren, ska den vända sig mot den, och börja skjuta mot den. 
         if(SeesPlayer == true){
@@ -62,10 +62,11 @@ public Animator Animator;
 
     }
 
-   public void SeePlayer(Vector3 eyePos, Vector3 playerPos){
-        
+   public bool SeePlayer(Vector3 eyePos, Vector3 playerPos){
+     
 //Om spelaren är tillräckligt nära motståndaren ska motståndaren börja kolla om den kan se den (för performance, och så den bara ser oss ifall dne är på skärmen)
     if(Vector2.Distance(PlayerTr.position, transform.position) < 9){
+        
 
 //skickar en raycast mot spelaren. om ingenting är i vägen ser motståndaren den. EnemyLayer är alla lager som skall skippas
         RaycastHit2D hitInfo = Physics2D.Raycast(eyePos, FaceDir,Vector2.Distance(eyePos,playerPos), ~EnemyLayer);
@@ -73,14 +74,15 @@ public Animator Animator;
         if(hitInfo.collider != null){
 
             if(hitInfo.transform.gameObject.name == "Player"){
-                SeesPlayer = true;
+               return true;
             }else{
-                SeesPlayer = false;
+                return false;
             }
 
 
         }
     }
+    return false;
     }
 
          private void OnDrawGizmos() {
