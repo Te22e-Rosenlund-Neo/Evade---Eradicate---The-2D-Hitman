@@ -8,7 +8,7 @@ public class BulletScript : MonoBehaviour
 {
 
 [SerializeField] string PlayerTag;
-[SerializeField] string MapTag;
+[SerializeField] string StarTag;
 [SerializeField] string LadderTag;
 public float ShotSpeed = 10; 
 float TimeAlive = 0;
@@ -42,12 +42,10 @@ Transform PlayerTr;
 
 
   private void OnTriggerEnter2D(Collider2D other) {
-
-        if(other.tag ==  MapTag || other.tag == LadderTag){
-            Destroy(gameObject);
-        }
-        else if(other.tag == PlayerTag){
+        if(other.tag == PlayerTag){
             other.GetComponent<PlayerMovement>().Health --;
+            Destroy(gameObject);
+        }else if(other.tag != StarTag && other.tag != LadderTag){
             Destroy(gameObject);
         }
   }

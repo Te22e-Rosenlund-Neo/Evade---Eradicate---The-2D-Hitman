@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     public bool sliding;
     float slidingDelay = 0.5f;
 
+    public int StarCount;
+
     
 
     void Update()   

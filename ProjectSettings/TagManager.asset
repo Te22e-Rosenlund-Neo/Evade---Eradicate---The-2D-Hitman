@@ -8,6 +8,7 @@ TagManager:
   - Ladder
   - Map
   - Barrier
+  - Star
   layers:
   - Default
   - TransparentFX
