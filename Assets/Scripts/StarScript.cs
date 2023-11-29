@@ -13,7 +13,7 @@ public class StarScript : MonoBehaviour
 
 private void OnTriggerEnter2D(Collider2D other) {
     if(other.tag == PlayerTag){
-        other.GetComponent<PlayerMovement>().StarCount ++;
+        GameObject.Find("PassThrough").GetComponent<PassThroughScript>().StarCount ++;
         Destroy(gameObject);
     }
 }

@@ -20,8 +20,8 @@ public class BorderScript : MonoBehaviour
     }
 
 private void OnTriggerEnter2D(Collider2D other) {
-    if(other.tag == PlayerTag || other.tag == EnemyTag){
-        Destroy(other.gameObject);
+    if(other.tag == PlayerTag){
+        other.GetComponent<PlayerMovement>().Health -= 10;
     }
 }
 }

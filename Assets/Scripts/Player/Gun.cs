@@ -41,7 +41,6 @@ public class Gun : MonoBehaviour
         //checks if we hit player, and then removes health.
         if(Hit.collider != null){
             if(Hit){
-                    Debug.Log(Hit.transform.name);
                     if(Hit.collider.gameObject.tag == EnemyTag){
                         Hit.collider.GetComponent<Enemy>().Health -= 3;
                     }

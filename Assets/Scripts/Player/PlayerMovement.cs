@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
@@ -45,13 +45,15 @@ public class PlayerMovement : MonoBehaviour
     public bool sliding;
     float slidingDelay = 0.5f;
 
-    public int StarCount;
+    
 
     
 
     void Update()   
         {   
             if(Health <= 0){
+                GameObject.Find("PassThrough").GetComponent<PassThroughScript>().Win = false;
+                SceneManager.LoadSceneAsync(2);
                 Destroy(gameObject);
             }
             
