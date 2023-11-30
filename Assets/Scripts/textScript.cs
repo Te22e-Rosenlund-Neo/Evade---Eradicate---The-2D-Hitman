@@ -12,12 +12,14 @@ public class textScript : MonoBehaviour
    
     [SerializeField] TextMeshProUGUI First;
     [SerializeField] TextMeshProUGUI Second;
-    
-    // Update is called once per frame
+    int StarCount;
+    void Start(){
+        StarCount = GameObject.Find("PassThrough").GetComponent<PassThroughScript>().StarCount;
+    }
     void Update()
     {
         
         First.text = Convert.ToString(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().Health);
-        Second.text = Convert.ToString($"{GameObject.Find("PassThrough").GetComponent<PassThroughScript>().StarCount}/14");
+        Second.text = Convert.ToString($"{GameObject.Find("PassThrough").GetComponent<PassThroughScript>().StarCount}/{StarCount}");
     }
 }
